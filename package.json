@@ -1,0 +1,54 @@
+{
+  "name": "unipotsdam-dorm-zim-internet-statistics-adapter",
+  "display_name": "Internet statistics",
+  "version": "0.1.0",
+  "description": "Uni Potsdam dorm ZIM Internet statistics support",
+  "author": "Galveston01",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "mozilla",
+    "iot",
+    "adapter",
+    "unipotsdam"
+  ],
+  "homepage": "https://github.com/Galveston01/unipotsdam-dorm-zim-internet-statistics-adapter",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Galveston01/unipotsdam-dorm-zim-internet-statistics-adapter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Galveston01/unipotsdam-dorm-zim-internet-statistics-adapter/issues"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0"
+  },
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "SHA256SUMS",
+    "unipotsdam-dorm-zim-internet-statistics-adapter.js",
+    "index.js",
+    "fsapi.js",
+    "manifest.json"
+  ],
+  "moziot": {
+    "api": {
+      "min": 2,
+      "max": 2
+    },
+    "type": "adapter",
+    "plugin": true,
+    "exec": "{nodeLoader} {path}"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "node-ssdp": "^4.0.0",
+    "xml2js": "^0.4.23",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

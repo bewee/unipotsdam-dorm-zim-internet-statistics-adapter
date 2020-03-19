@@ -1,0 +1,48 @@
+{
+  "author": "Galveston01",
+  "description": "Uni Potsdam dorm ZIM Internet statistics support",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "{nodeLoader} {path}",
+      "primary_type": "adapter",
+      "strict_max_version": "*",
+      "strict_min_version": "0.10.0"
+    }
+  },
+  "homepage_url": "https://github.com/Galveston01/unipotsdam-dorm-zim-internet-statistics-adapter",
+  "id": "unipotsdam-dorm-zim-internet-statistics-adapter",
+  "license": "GPL-3.0",
+  "manifest_version": 1,
+  "name": "Internet statistics",
+  "short_name": "Internet",
+  "version": "0.1.0",
+
+  "options": {
+    "default": {
+      "routerIP": "",
+      "dormId": "studheim-sdg",
+      "pollInterval": 43200
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "dormId",
+        "pollInterval"
+      ],
+      "properties": {
+        "routerIP": {
+          "description": "IP address of your router (if empty, it will be determined automatically)",
+          "type": "string"
+        },
+        "dormId": {
+          "description": "Select your dorm id (example: studheim-sdg = Griebnitzsee)",
+          "type": "string"
+        },
+        "pollInterval": {
+          "description": "Interval in seconds that defines how often to update values",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
