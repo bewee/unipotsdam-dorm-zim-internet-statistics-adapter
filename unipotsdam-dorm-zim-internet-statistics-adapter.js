@@ -1,11 +1,9 @@
 'use strict';
 
-const {
-  Adapter,
-  Database,
-  Device,
-  Property,
-} = require('gateway-addon');
+const Adapter = require('gateway-addon').Adapter;
+const Database = require('gateway-addon').Database;
+const Device = require('gateway-addon').Device;
+const Property = require('gateway-addon').Property;
 const manifest = require('./manifest.json');
 const UPDormZimInternetLib = require('./up-dorm-zim-internet-lib');
 
@@ -16,40 +14,29 @@ class UnipotsdamDormZimInternetStatisticsDevice extends Device {
     this.lib = lib;
     this.maxdatavolume = maxdatavolume;
 
-    const deviceDescription = {
-      name: 'Internet statistics',
-      '@type': ['MultiLevelSensor'],
-      description: 'Internet statistics',
-      properties: {
-        used: {
-          '@type': 'LevelProperty',
-          label: 'used data volume (GB)',
-          name: 'used',
-          type: 'number',
-          minimum: 0,
-          maximum: maxdatavolume/1024.0,
-          value: 0,
-          multipleOf: 1/100.0,
-          readOnly: true,
-        },
-        remainingDays: {
-          label: 'days remaining',
-          name: 'remainingDays',
-          type: 'integer',
-          value: 0,
-          readOnly: true,
-        },
-      },
-    };
+    this.name = 'Internet statistics';
+    this['@type'] = ['MultiLevelSensor'];
+    this.description = 'Internet statistics';
 
-    this.name = deviceDescription.name;
-    this.type = deviceDescription.type;
-    this['@type'] = deviceDescription['@type'];
-    this.description = deviceDescription.description;
-
-    this.usedProperty = new Property(this, 'used', deviceDescription.properties.used);
+    this.usedProperty = new Property(this, 'used', {
+      '@type': 'LevelProperty',
+      label: 'used data volume (GB)',
+      name: 'used',
+      type: 'number',
+      minimum: 0,
+      maximum: maxdatavolume/1024.0,
+      value: 0,
+      multipleOf: 1/100.0,
+      readOnly: true,
+    });
     this.properties.set('used', this.usedProperty);
-    this.remainingDaysProperty = new Property(this, 'remainingDays', deviceDescription.properties.remainingDays);
+    this.remainingDaysProperty = new Property(this, 'remainingDays', {
+      label: 'days remaining',
+      name: 'remainingDays',
+      type: 'integer',
+      value: 0,
+      readOnly: true,
+    });
     this.properties.set('remainingDays', this.remainingDaysProperty);
 
     this.links.push({
@@ -106,15 +93,14 @@ class UnipotsdamDormZimInternetStatisticsAdapter extends Adapter {
     addonManager.addAdapter(this);
 
     this.db = new Database(this.packageName);
-    const _self = this;
-    this.db.open().then(() => {
-      return _self.db.loadConfig();
-    }).then((config) => {
-      _self.config = config;
+    this.db.open().then((() => {
+      return this.db.loadConfig();
+    }).bind(this)).then(((config) => {
+      this.config = config;
       return Promise.resolve();
-    }).then(() => {
-      _self.addDevice();
-    }).catch(console.error);
+    }).bind(this)).then((() => {
+      this.addDevice();
+    }).bind(this)).catch(console.error);
   }
 
   async addDevice() {
