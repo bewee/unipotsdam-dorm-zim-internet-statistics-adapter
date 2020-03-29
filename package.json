@@ -12,7 +12,7 @@
     "mozilla",
     "iot",
     "adapter",
-    "unipotsdam"
+    "uni potsdam"
   ],
   "homepage": "https://github.com/Galveston01/unipotsdam-dorm-zim-internet-statistics-adapter",
   "license": "GPL-3.0",
@@ -31,10 +31,10 @@
     "LICENSE.md",
     "README.md",
     "SHA256SUMS",
-    "unipotsdam-dorm-zim-internet-statistics-adapter.js",
+    "manifest.json",
     "index.js",
-    "fsapi.js",
-    "manifest.json"
+    "unipotsdam-dorm-zim-internet-statistics-adapter.js",
+    "up-dorm-zim-internet-lib.js"
   ],
   "moziot": {
     "api": {
