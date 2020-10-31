@@ -32,11 +32,26 @@
       "properties": {
         "routerIP": {
           "description": "IP address of your router (if empty, it will be determined automatically)",
-          "type": "string"
+          "type": "string",
+          "pattern": "(^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$)|(^$)"
         },
         "dormId": {
-          "description": "Select your dorm id (example: studheim-sdg = Griebnitzsee)",
-          "type": "string"
+          "description": "Select your dorm",
+          "type": "string",
+          "enum": [
+            "studheim-KF142",
+            "studheim-NP-T1",
+            "studheim-NP-T2",
+            "studheim-NP-T3",
+            "studheim-forst-41-43-44-46",
+            "studheim-Forststrasse48-50",
+            "studheim-golm-ost",
+            "studheim-BS1-5",
+            "studheim-BS15-21",
+            "studheim-am46",
+            "studheim-sdg",
+            "studheim-PB"
+          ]
         },
         "pollInterval": {
           "description": "Interval in seconds that defines how often to update values",
