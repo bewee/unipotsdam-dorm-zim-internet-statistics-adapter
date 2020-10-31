@@ -42,7 +42,7 @@ class UnipotsdamDormZimInternetStatisticsDevice extends Device {
     this.links.push({
       rel: 'alternate',
       mediaType: 'text/html',
-      href: `http://sfite.de/noodlehome/internetcheck.html`,
+      href: `https://www.intern.uni-potsdam.de/zim/psn/${this.adapter.config.dormId}`,
     });
 
     this.updateUsed();
