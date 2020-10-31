@@ -14,6 +14,10 @@ class UPDormZimInternetLib {
         if (xhttp.status >= 200 && xhttp.status < 300) {
           const r = new RegExp(`(${this.ip})(.*)(\\n)`);
           const matches = xhttp.responseText.match(r);
+          if (!matches || !Array.isArray(matches) || matches.length < 1) {
+            resolve(-1024);
+            return;
+          }
           resolve(parseInt(matches[0].substring(this.ip.length).replace('\t', '').replace(' ', '').replace('\n', '')));
         }
       }).bind(this);
@@ -29,6 +33,10 @@ class UPDormZimInternetLib {
         if (xhttp.status >= 200 && xhttp.status < 300) {
           const r = new RegExp(`(derzeit)(.*)(MByte)`);
           const matches = xhttp.responseText.match(r);
+          if (!matches || !Array.isArray(matches) || matches.length < 3) {
+            resolve(-1024);
+            return;
+          }
           resolve(parseInt(matches[2].replace('\t', '').replace(' ', '').replace('\n', '')));
         }
       }).bind(this);
