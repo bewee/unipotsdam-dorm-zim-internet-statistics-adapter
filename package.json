@@ -3,7 +3,7 @@
   "display_name": "Internet statistics",
   "version": "0.1.0",
   "description": "Uni Potsdam dorm ZIM Internet statistics support",
-  "author": "Galveston01",
+  "author": "bewee",
   "main": "index.js",
   "scripts": {
     "lint": "eslint ."
@@ -14,14 +14,14 @@
     "adapter",
     "uni potsdam"
   ],
-  "homepage": "https://github.com/Galveston01/unipotsdam-dorm-zim-internet-statistics-adapter",
+  "homepage": "https://github.com/bewee/unipotsdam-dorm-zim-internet-statistics-adapter",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Galveston01/unipotsdam-dorm-zim-internet-statistics-adapter.git"
+    "url": "https://github.com/bewee/unipotsdam-dorm-zim-internet-statistics-adapter.git"
   },
   "bugs": {
-    "url": "https://github.com/Galveston01/unipotsdam-dorm-zim-internet-statistics-adapter/issues"
+    "url": "https://github.com/bewee/unipotsdam-dorm-zim-internet-statistics-adapter/issues"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
